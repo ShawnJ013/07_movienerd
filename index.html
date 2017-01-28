@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movie-finder">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Nerd</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- bower:css -->
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <link rel="stylsheet " href="index.css">
+</head>
+
+<body ng-controller="MovieController as vm">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row ">
+                <b><h1 align="center">Movie Nerd</h1></b>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div>
+            <div class="container">
+                <div class="input-group" class='btn-group m-b-24 ' role='group ' class='center ' aria-lable='big movies '>
+                    <input type="text" class="form-control" placeholder="Enter movie name  " ng-model="vm.input "></input>
+                    <div>
+                        <span class="input-group-btn">
+  <button class="btn btn-secondary " ng-click="vm.callMovieTitleApi(vm.input)" type="button ">Go!</button>
+      
+    </div>
+    </div>
+   </span>
+    </form>
+    <form ng-submit="vm.callMovieTitleApi(vm.movieSearch)">
+        </div>
+        </div>
+        </div>
+        </div>
+        <br>
+        <div class="container ">
+            <div class="row ">
+                <div class="col-xs-4 " ng-repeat="movie in vm.results">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading ">
+                            <div class="panel-body ">
+                                <img ng-src={{movie.Poster}} class="img-circle img-responsive">
+                                <a ng-href="http://www.imbd.com/title/{{movie.imbdID}}"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre>{{vm.movieinfo | json}}</pre>
+        </div>
+        <!-- bower:js -->
+        <!-- jQuery -->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js " integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS " crossorigin="anonymous "></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script scr="app/search/app.module.js"></script>
+
+        <script src="bower_components/angular/angular.js"></script>
+        
+        <script src="app/search/search.controller.js"></script>
+        <script src="app/core/movie.factory.js"></script>
+        <!-- endinject -->
+</body>
+
+</html>
